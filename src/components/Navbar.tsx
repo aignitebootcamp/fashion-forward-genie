@@ -1,9 +1,10 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Shirt, Search, User, Menu, X } from "lucide-react";
+import { Shirt, Search, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
+import UserMenu from "@/components/UserMenu";
 
 const Navbar = () => {
   const isMobile = useIsMobile();
@@ -29,8 +30,7 @@ const Navbar = () => {
                 <nav className="container py-6 flex flex-col gap-4">
                   <NavLinks onClick={() => setIsMenuOpen(false)} />
                   <div className="mt-4 flex flex-col gap-2">
-                    <Button className="w-full" variant="outline">Sign In</Button>
-                    <Button className="w-full">Sign Up</Button>
+                    <UserMenu />
                   </div>
                 </nav>
               </div>
@@ -42,8 +42,7 @@ const Navbar = () => {
               <NavLinks />
             </nav>
             <div className="hidden md:flex items-center gap-2">
-              <Button variant="outline" size="sm">Sign In</Button>
-              <Button size="sm">Sign Up</Button>
+              <UserMenu />
             </div>
           </>
         )}
